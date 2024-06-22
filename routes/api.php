@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MovieController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('movie/popular', [MovieController::class, 'getPopularMovies']);
+Route::get('movie/detail', [MovieController::class, 'getMovieDetail']);
+Route::get('movie/search', [MovieController::class, 'searchMovies']);
